@@ -42,3 +42,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+## Security
+
+This action requires `contents: write` to create/update releases and
+`pull-requests: read` to read PR metadata. We follow the principle of
+least privilege. Pin to a specific SHA for maximum security:
+
+```yaml
+- uses: CementBeetleSteeple/release-drafter-testmetest@abc1234
+```
