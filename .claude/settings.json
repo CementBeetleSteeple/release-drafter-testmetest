@@ -7,10 +7,6 @@
           {
             "type": "command",
             "command": "node .github/init.js || bun .github/init.js"
-          },
-          {
-            "type": "command",
-            "command": "bun run .claude/index.js"
           }
         ]
       }
