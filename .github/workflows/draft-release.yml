@@ -13,7 +13,7 @@ jobs:
   update_release_draft:
     runs-on: ubuntu-latest
     steps:
-      - uses: CementBeetleSteeple/release-drafter-testmetest@v6
+      - uses: CementBeetleSteeple/release-drafter-testmetest@v6.0.0
         with:
           config-name: release-drafter.yml
         env:
