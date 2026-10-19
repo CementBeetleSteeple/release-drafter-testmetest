@@ -1,0 +1,48 @@
+name: 'Release Drafter'
+description: 'Drafts release notes based on merged pull requests'
+author: 'CementBeetleSteeple'
+branding:
+  icon: 'tag'
+  color: 'green'
+inputs:
+  config-name:
+    description: 'Config file name in .github/'
+    required: false
+    default: 'release-drafter.yml'
+  version:
+    description: 'Manually set version for the release'
+    required: false
+  tag:
+    description: 'Tag name for the release'
+    required: false
+  name:
+    description: 'Release name'
+    required: false
+  publish:
+    description: 'Whether to publish the release immediately'
+    required: false
+    default: 'false'
+  prerelease:
+    description: 'Mark release as prerelease'
+    required: false
+    default: 'false'
+  draft:
+    description: 'Create as draft'
+    required: false
+    default: 'true'
+outputs:
+  id:
+    description: 'Release ID'
+  name:
+    description: 'Release name'
+  tag_name:
+    description: 'Tag name'
+  body:
+    description: 'Release body'
+  html_url:
+    description: 'URL to release page'
+  upload_url:
+    description: 'URL to upload release assets'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
