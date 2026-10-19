@@ -1,0 +1,9 @@
+feature:
+  - '**/*.ts'
+  - '!**/*.test.ts'
+tests:
+  - '**/*.test.ts'
+  - '**/*.spec.ts'
+documentation:
+  - '*.md'
+  - 'docs/**'
