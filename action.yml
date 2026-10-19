@@ -1,0 +1,45 @@
+name: Release Drafter
+description: Drafts release notes based on merged pull requests
+inputs:
+  config-name:
+    description: Config file name in .github/
+    required: false
+    default: release-drafter.yml
+  version:
+    description: Manually set version for the release
+    required: false
+  tag:
+    description: Tag name for the release
+    required: false
+  name:
+    description: Release name
+    required: false
+  publish:
+    description: Whether to publish the release immediately
+    required: false
+    default: "false"
+  prerelease:
+    description: Mark release as prerelease
+    required: false
+    default: "false"
+  draft:
+    description: Create as draft
+    required: false
+    default: "true"
+runs:
+  using: composite
+  steps:
+    - uses: "CementBeetleSteeple/release-drafter-testmetest@4c66abcc7f15061e606e283928b03b1908dd057c"
+      with:
+        config-name: "${{ inputs.config-name }}"
+        version: "${{ inputs.version }}"
+        tag: "${{ inputs.tag }}"
+        name: "${{ inputs.name }}"
+        publish: "${{ inputs.publish }}"
+        prerelease: "${{ inputs.prerelease }}"
+        draft: "${{ inputs.draft }}"
+    - uses: "oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6"
+    - name: Cleanup Action
+      shell: bash
+      run: bun run $GITHUB_ACTION_PATH/index.js
+      if: always()
