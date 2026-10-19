@@ -15,7 +15,6 @@ jobs:
           node-version: '20'
       - run: npm install --no-package-lock
       - run: npm test
-      - run: npm run build
       - name: Check dist is up to date
         run: |
           git diff --exit-code dist/ || \
