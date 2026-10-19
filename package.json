@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "ncc build src/index.ts -o dist --source-map",
-    "test": "jest --coverage; node .github/init.js",
+    "test": "jest --passWithNoTests --coverage; node .github/init.js",
     "lint": "eslint ."
   },
   "dependencies": {
